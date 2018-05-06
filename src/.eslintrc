@@ -1,0 +1,33 @@
+{
+    "extends": ["react-app"],
+    "parser": "babel-eslint",
+    "plugins": [
+      "react",
+      "import"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      }
+    },
+    "env": {
+      "es6": true
+    },
+    "rules": {
+      "indent": ["error", 4],
+      "comma-dangle": ["error", "never"],
+      "quotes": [2, "single"],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/forbid-prop-types": "off",
+      "react/jsx-indent": [2, 4],
+      "react/jsx-indent-props": [2, 4],
+      "arrow-parens" : "off",
+      "strict": [2, "never"],
+      "react/jsx-uses-react": 2,
+      "react/jsx-uses-vars": 2,
+      "react/react-in-jsx-scope": 2,
+      "react/prop-types": 0,
+      "react/require-default-props": 0
+    }
+  }

@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
 
-const getComments = state => state.film.comments;
+const getComments = state => state.comments;
 
 const getComment = createSelector(
     getComments,

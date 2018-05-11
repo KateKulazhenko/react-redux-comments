@@ -4,8 +4,9 @@ import './index.css';
 
 import { Provider } from 'react-redux';
 import createStore from '../../store';
+import CommentForm from '../../modules/Comment/containers/CommentContainer';
 
-const { store} = createStore();
+const { store } = createStore();
 
 const App = () => {
 
@@ -15,6 +16,9 @@ const App = () => {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
             </header>
+            <div className="container">
+                <CommentForm />
+            </div>
         </div>
     </Provider>
     );

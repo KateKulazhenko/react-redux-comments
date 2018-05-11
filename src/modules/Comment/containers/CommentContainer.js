@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions';
 import selectors from '../selectors';
 
@@ -35,8 +36,7 @@ CommentsContainer.propTypes = {
 
 function mapStateToProps(state, props) {
     return {
-        comments: selectors.getComment(state, props.match.params.id),
-        idFilms: props.match.params.id
+        comments: selectors.getComment(state),
     }
 }
 

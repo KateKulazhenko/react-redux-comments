@@ -5,13 +5,11 @@ const initialState = {};
 
 export default handleActions({
     [comments]: (state, action) => {
-        const id = action.payload.id;
         const comment = action.payload.text.comment;
-        const prevComments = state[id] || {};
 
-        return {
+        return [
             ...state,
-            [id]: [...prevComments, comment]
-        }
+            comment,
+        ]
     }
 }, initialState)

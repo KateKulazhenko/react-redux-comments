@@ -5,7 +5,7 @@ const initialState = {};
 
 export default handleActions({
     [comments]: (state, action) => {
-        const comment = action.payload.text.comment;
+        const comment = action.payload.text;
 
         return [
             ...state,

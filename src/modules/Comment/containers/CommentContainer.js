@@ -4,15 +4,23 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions';
 import selectors from '../selectors';
-import Paper from 'material-ui/Paper';
 
 import Comment from '../components/Comment';
 
 class CommentsContainer extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            name: '',
+            text: '',
+        }
+    }
+
     onSubmit = (data) => {
         this.props.action.comments({
-            text: data,
+            text: data.comment,
         });
     };
 
@@ -30,7 +38,11 @@ class CommentsContainer extends React.Component {
     }
 }
 
-function mapStateToProps(state, props) {
+CommentsContainer.propTypes = {
+    action: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
     return {
         comments: selectors.getComments(state),
     }

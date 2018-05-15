@@ -1,39 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
-import { Field, reduxForm } from 'redux-form';
 import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 
 import styles from './styles';
 
-const validate = values => {
-    const error = {};
-    if (!values.comment) {
-        error.comment = 'Please, write a text';
-    }
-
-    return error;
-};
-
-const Comment = ({ handleSubmit, error, classes, onSubmit }) => {
+const Comment = ({ classes, onSubmit, handleAuthorChange, author, handleTextChange, text }) => {
     
     return(
-        <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-            <Field name="comment" component="textarea" />
-            {error && <div>{error}</div>}
+        <form onSubmit={onSubmit} className={classes.form}>
+            <input
+                type='text'
+                placeholder='Name'
+                value={author}
+                onChange={handleAuthorChange}
+                maxLength='20'
+                className={classes.input}
+                required
+            />
+            <input
+                type='text'
+                placeholder='Comment'
+                value={text}
+                onChange={handleTextChange}
+            />
             <Button label="Send" type="submit">Post</Button>
         </form>
     );
 };
 
 Comment.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
-export default compose(
-    reduxForm(),
-    withStyles(styles)
-)(Comment);
+export default withStyles(styles)(Comment);

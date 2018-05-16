@@ -13,15 +13,28 @@ class CommentsContainer extends React.Component {
         super(props);
 
         this.state = {
-            name: '',
+            author: '',
             text: '',
+            canPost: 'false',
         }
     }
 
-    onSubmit = (data) => {
+    handleAuthorChange = (e) => {
+      this.setState({author: e.target.value})
+    };
+
+    handleTextChange = (e) => {
+        this.setState({text: e.target.value})
+    };
+
+    onSubmit = (e) => {
+        console.log(this.state);
+        e.preventDefault();
         this.props.action.comments({
-            text: data.comment,
+            author: this.state.author,
+            text: this.state.text,
         });
+        this.setState({text: ''})
     };
 
     render() {
@@ -29,10 +42,12 @@ class CommentsContainer extends React.Component {
         const props = {
             comments,
             onSubmit: this.onSubmit,
-            form: 'commentForm',
+            handleAuthorChange: this.handleAuthorChange,
+            handleTextChange: this.handleTextChange,
+            author: this.state.author,
+            text: this.state.text,
         };
         return (
-
             <Comment {...props} />
         )
     }

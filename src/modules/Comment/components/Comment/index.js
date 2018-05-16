@@ -1,37 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import { withStyles } from 'material-ui/styles';
 
-import styles from './styles';
+import './styles.css';
 
-const Comment = ({ classes, onSubmit, handleAuthorChange, author, handleTextChange, text }) => {
+const Comment = ({ onSubmit, handleAuthorChange, author, handleTextChange, text }) => {
     
     return(
-        <form onSubmit={onSubmit} className={classes.form}>
+        <form onSubmit={onSubmit} className='form'>
             <input
                 type='text'
                 placeholder='Name'
                 value={author}
                 onChange={handleAuthorChange}
                 maxLength='20'
-                className={classes.input}
+                className='name-input'
                 required
             />
             <input
                 type='text'
                 placeholder='Comment'
                 value={text}
+                className='input'
                 onChange={handleTextChange}
             />
-            <Button label="Send" type="submit">Post</Button>
+            <input
+                type='submit'
+                value='Post'
+                className="button"
+                disabled={!author || !text}
+            />
         </form>
     );
 };
 
 Comment.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    classes: PropTypes.object.isRequired,
+    handleAuthorChange: PropTypes.func.isRequired,
+    handleTextChange: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Comment);
+export default Comment;

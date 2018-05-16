@@ -1,21 +1,17 @@
-.App {
-  text-align: center;
+body{
+  font-family: Futura std,Futura, "Century Gothic",CenturyGothic,"Avant Garde",Avantgarde,Futura,AppleGothic,Arial,Helvetica,sans-serif;
+  color: #444;
 }
-
+.App {
+  width: 700px;
+  margin: 0 auto;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
 .App-header {
-  background-color: #222;
-  padding: 20px;
   color: white;
-}
-
-.container {
-  width: 700px;
-  margin: 0 auto;
 }
 
 @keyframes App-logo-spin {

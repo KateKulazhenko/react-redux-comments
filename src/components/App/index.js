@@ -14,7 +14,7 @@ const App = () => {
     <Provider store={store}>
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                <h1>Comments</h1>
             </header>
             <div className="container">
                 <CommentForm />
@@ -22,6 +22,6 @@ const App = () => {
         </div>
     </Provider>
     );
-}
+};
 
 export default App;

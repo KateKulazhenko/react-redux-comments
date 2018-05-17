@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const Comment = ({ onSubmit, handleAuthorChange, author, handleTextChange, text }) => {
-    
     return(
         <form onSubmit={onSubmit} className='form'>
             <input

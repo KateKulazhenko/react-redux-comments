@@ -6,13 +6,10 @@ const initialState = {};
 export default handleActions({
     [comments]: (state, action) => {
         const text = action.payload.text;
-        const author = action.payload.author;
-        const prevComment = state[author] || {};
-        console.log(author);
 
-        return {
+        return [
             ...state,
-            [author]: [...prevComment, text],
-        }
+            text,
+        ]
     }
 }, initialState)

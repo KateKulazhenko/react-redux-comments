@@ -4,7 +4,7 @@ import './styles.css';
 
 const CommentList = ({ author, comments }) => {
   return (
-      <div className="container">
+      <div className="list">
           {comments.length ?
               comments.map((item, index) =>
                   <div className="item" key={'comments_' + index}>

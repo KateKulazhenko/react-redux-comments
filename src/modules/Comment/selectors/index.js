@@ -1,4 +1,4 @@
-const getComments = state => state.comments;
+const getComments = state => state.comment.comments;
 
 export default {
     getComments

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from '../actions';
 import selectors from '../selectors';
 
-import Comment from '../components/Comment';
+import CommentContent from '../components/CommentContent';
 
 class CommentsContainer extends React.Component {
 
@@ -28,7 +28,6 @@ class CommentsContainer extends React.Component {
     };
 
     onSubmit = (e) => {
-        console.log(this.state);
         e.preventDefault();
         this.props.action.comments({
             author: this.state.author,
@@ -38,7 +37,8 @@ class CommentsContainer extends React.Component {
     };
 
     render() {
-        const {comments} = this.props;
+        const { comments } = this.props;
+
         const props = {
             comments,
             onSubmit: this.onSubmit,
@@ -47,8 +47,9 @@ class CommentsContainer extends React.Component {
             author: this.state.author,
             text: this.state.text,
         };
+
         return (
-            <Comment {...props} />
+            <CommentContent {...props} />
         )
     }
 }
